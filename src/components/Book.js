@@ -23,7 +23,7 @@ function Book(props) {
           <div className='book-shelf-changer'>
             <select
               value={book.shelf}
-              onChange={e => changedBookShelf(book, e.target.value)}>
+              onChange={event => changedBookShelf(book, event.target.value)}>
               <option value='move' disabled>
                 Move to...
               </option>

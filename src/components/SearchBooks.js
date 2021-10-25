@@ -33,7 +33,7 @@ class SearchBooks extends Component {
   };
 
   render() {
-    const { query, availableBooks, updateQuery } = this.state;
+    const { query, availableBooks } = this.state;
     const { changedBookShelf } = this.props;
 
     return (
@@ -47,7 +47,7 @@ class SearchBooks extends Component {
               type='text'
               placeholder='Search by title or author'
               value={query}
-              onChange={updateQuery}
+              onChange={this.updateQuery}
             />
           </div>
         </div>

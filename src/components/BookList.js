@@ -1,9 +1,10 @@
 import React from 'react';
 import BookShelf from './BookShelf';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function BookList(props) {
-  const { books, changeBookShelf } = props;
+  const { books, changedBookShelf } = props;
 
   let currentlyReading = books.filter(
     book => book.shelf === 'currentlyReading'
@@ -18,17 +19,17 @@ function BookList(props) {
       </div>
       <div className='list-books-content'>
         <BookShelf
-          changeBookShelf={changeBookShelf}
+          changedBookShelf={changedBookShelf}
           books={currentlyReading}
           title='Currently Reading'
         />
         <BookShelf
-          changeBookShelf={changeBookShelf}
+          changedBookShelf={changedBookShelf}
           books={wantToRead}
           title='Want To Read'
         />
         <BookShelf
-          changeBookShelf={changeBookShelf}
+          changedBookShelf={changedBookShelf}
           books={read}
           title='Read'
         />
@@ -39,5 +40,10 @@ function BookList(props) {
     </div>
   );
 }
+
+BookList.propTypes = {
+  books: PropTypes.array.isRequired,
+  changedBookShelf: PropTypes.func.isRequired,
+};
 
 export default BookList;
