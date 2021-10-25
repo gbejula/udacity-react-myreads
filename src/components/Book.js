@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Book(props) {
   const { book, changedBookShelf } = props;
 
-  let image = book.imageLinks
+  let bookDisplayImage = book.imageLinks
     ? book.imageLinks.thumbnail
     : 'https://books.google.com/googlebooks/image/no_cover_thumb.gif';
 
@@ -17,7 +17,7 @@ function Book(props) {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${bookDisplayImage})`,
             }}
           />
           <div className='book-shelf-changer'>

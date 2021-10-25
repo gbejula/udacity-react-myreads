@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 function BookShelf(props) {
-  const { title, books, changedBookShelf } = props;
+  const { bookTitle, books, changedBookShelf } = props;
 
   return (
     <div className='bookshelf'>
-      <h2 className='bookshelf-title'>{title}</h2>
+      <h2 className='bookshelf-title'>{bookTitle}</h2>
       <div className='bookshelf-books'>
-        {books.length ? (
+        {books.length > 0 ? (
           <ol className='books-grid'>
             {books.map(book => (
               <Book
@@ -20,7 +20,7 @@ function BookShelf(props) {
             ))}
           </ol>
         ) : (
-          <p>Loading...</p>
+          <h3>Loading..., please wait for the books</h3>
         )}
       </div>
     </div>
