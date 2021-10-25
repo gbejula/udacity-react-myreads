@@ -21,17 +21,17 @@ function BookList(props) {
         <BookShelf
           changedBookShelf={changedBookShelf}
           books={currentlyReading}
-          title='Currently Reading'
+          bookCategory='Currently Reading'
         />
         <BookShelf
           changedBookShelf={changedBookShelf}
           books={wantToRead}
-          title='Want To Read'
+          bookCategory='Want To Read'
         />
         <BookShelf
           changedBookShelf={changedBookShelf}
           books={read}
-          title='Read'
+          bookCategory='Read'
         />
       </div>
       <div className='open-search'>
