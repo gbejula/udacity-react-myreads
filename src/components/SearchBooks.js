@@ -18,7 +18,7 @@ class SearchBooks extends Component {
   updateQuery = e => {
     const query = e.target.value;
     this.setState(() => ({
-      query: query.trim(),
+      query: query,
     }));
 
     if (query) {

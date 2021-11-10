@@ -10,12 +10,9 @@ class BooksApp extends React.Component {
     books: [],
   };
 
-  componentDidMount() {
-    BooksAPI.getAll().then(books =>
-      this.setState(() => ({
-        books,
-      }))
-    );
+  async componentDidMount() {
+    const books = await BooksAPI.getAll();
+    this.setState({ books });
   }
 
   changedBookShelf = (book, shelf) => {
@@ -35,16 +32,9 @@ class BooksApp extends React.Component {
     return (
       <div className='app'>
         <Switch>
-          <Route
-            exact
-            path='/'
-            render={() => (
-              <BookList
-                books={books}
-                changedBookShelf={this.changedBookShelf}
-              />
-            )}
-          />
+          <Route exact path='/'>
+            <BookList books={books} changedBookShelf={this.changedBookShelf} />
+          </Route>
 
           <Route
             path='/search'
