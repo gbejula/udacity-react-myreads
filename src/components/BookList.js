@@ -26,7 +26,7 @@ function BookList(props) {
         <BookShelf
           changedBookShelf={changedBookShelf}
           books={wantToRead}
-          bookCategory='Want To Read'
+          bookCategory='Want to Read'
         />
         <BookShelf
           changedBookShelf={changedBookShelf}
