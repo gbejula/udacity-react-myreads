@@ -18,7 +18,7 @@ Kindly install the project and it dependencies of the project
 $ npm install or yarn install
 ```
 
-To start the project, use npm and yarn on the terminal to launch the project
+To start the project, use `npm` and `yarn` on the terminal to launch the project
 
 ```
 $ npm start or yarn start

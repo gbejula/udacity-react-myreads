@@ -12,6 +12,7 @@ class SearchBooks extends Component {
   state = {
     query: '',
     availableBooks: [],
+    searchError: false,
   };
 
   updateQuery = e => {
@@ -22,26 +23,36 @@ class SearchBooks extends Component {
 
     if (!query) {
       this.setState({ availableBooks: [] });
+      return;
     }
 
-    BooksAPI.search(query).then(books => {
-      if (!books) {
+    BooksAPI.search(query)
+      .then(books => {
+        if (!books || books.searchError) {
+          this.setState({
+            availableBooks: [],
+          });
+          return;
+        }
+        books = books.map(book => {
+          const bookLocatedOnShelf = this.props.books.find(
+            b => b.id === book.id
+          );
+          book.shelf = bookLocatedOnShelf ? bookLocatedOnShelf.shelf : 'none';
+          return book;
+        });
+        this.setState({ availableBooks: books, searchError: false });
+      })
+      .catch(err => {
         this.setState({
           availableBooks: [],
+          searchError: 'There was an error',
         });
-        return;
-      }
-      books = books.map(book => {
-        const bookLocatedOnShelf = this.props.books.find(b => b.id === book.id);
-        book.shelf = bookLocatedOnShelf ? bookLocatedOnShelf.shelf : 'none';
-        return book;
       });
-      this.setState({ availableBooks: books });
-    });
   };
 
   render() {
-    const { query, availableBooks } = this.state;
+    const { query, availableBooks, searchError } = this.state;
     const { changedBookShelf } = this.props;
 
     return (
@@ -70,6 +81,11 @@ class SearchBooks extends Component {
                 />
               ))}
             </ol>
+          )}
+          {searchError && (
+            <h3 className='searchError'>
+              No books match the search, please change the search term.
+            </h3>
           )}
         </div>
       </div>

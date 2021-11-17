@@ -197,3 +197,8 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+.searchError {
+  color: red;
+  text-align: center;
+}
