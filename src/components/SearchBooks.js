@@ -20,15 +20,24 @@ class SearchBooks extends Component {
       query: query,
     }));
 
-    if (query) {
-      BooksAPI.search(query).then(books => {
-        books.length > 0
-          ? this.setState({ availableBooks: books })
-          : this.setState({ availableBooks: [] });
-      });
-    } else {
+    if (!query) {
       this.setState({ availableBooks: [] });
     }
+
+    BooksAPI.search(query).then(books => {
+      if (!books) {
+        this.setState({
+          availableBooks: [],
+        });
+        return;
+      }
+      books = books.map(book => {
+        const bookLocatedOnShelf = this.props.books.find(b => b.id === book.id);
+        book.shelf = bookLocatedOnShelf ? bookLocatedOnShelf.shelf : 'none';
+        return book;
+      });
+      this.setState({ availableBooks: books });
+    });
   };
 
   render() {

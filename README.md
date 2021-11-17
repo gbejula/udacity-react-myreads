@@ -1,6 +1,6 @@
 # MyReads Project
 
----s
+---
 
 ## Project purpose
 
@@ -12,9 +12,17 @@ The link to my project is https://udacity-react-myreads.vercel.app/
 
 This is the first project for the Udacity React Developer Course.
 
-Kindly install the project using the #npm install to install all the dependencies of the project.
+Kindly install the project and it dependencies of the project
 
-To start the project, please type the #npm start command on the terminal to launch the project
+```
+$ npm install or yarn install
+```
+
+To start the project, use npm and yarn on the terminal to launch the project
+
+```
+$ npm start or yarn start
+```
 
 #### Search Terms
 

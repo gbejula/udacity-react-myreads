@@ -8,6 +8,15 @@ function Book(props) {
     ? book.imageLinks.thumbnail
     : 'https://books.google.com/googlebooks/image/no_cover_thumb.gif';
 
+  // let currentShelf = 'none';
+
+  // for (let item of books) {
+  //   if (item.id === book.id) {
+  //     currentShelf = item.shelf;
+  //     break;
+  //   }
+  // }
+
   return (
     <li>
       <div className='book'>
