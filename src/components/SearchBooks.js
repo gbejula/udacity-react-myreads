@@ -83,9 +83,9 @@ class SearchBooks extends Component {
             </ol>
           )}
           {searchError && (
-            <h3 className='searchError'>
+            <h2 className='searchError'>
               No books match the search, please change the search term.
-            </h3>
+            </h2>
           )}
         </div>
       </div>
